@@ -58,10 +58,15 @@ const blogs = [
 ];
 
 export function getBlogs(){
-    return blogs;
+  return blogs;
 }
 
 export function addBlog(title: string, author: string, url: string){
-    blogs.unshift({id: crypto.randomUUID(), title, author, url, likes: 0});
+  blogs.unshift({id: crypto.randomUUID(), title, author, url, likes: 0});
+}
+
+export function getBlogById(id: string){
+  const blog = blogs.find(blog => blog.id === id);
+  return blog;
 }
 
