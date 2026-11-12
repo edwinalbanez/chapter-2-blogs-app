@@ -70,3 +70,10 @@ export function getBlogById(id: string){
   return blog;
 }
 
+export function incrementLikes(id: string){
+  const blog = blogs.find(blog => blog.id === id);
+  if (blog) {
+    blog.likes += 1
+  }
+}
+
