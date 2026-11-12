@@ -58,7 +58,7 @@ const blogs = [
 ];
 
 export function getBlogs(){
-  return blogs;
+  return blogs.sort((a, b) => b.likes - a.likes);
 }
 
 export function addBlog(title: string, author: string, url: string){
