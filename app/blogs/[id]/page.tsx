@@ -1,6 +1,7 @@
 
 import { incrementBlogLikes } from "@/app/actions/blogs";
 import { getBlogById } from "@/app/services/blogs";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ComponentProps } from "react";
 
@@ -14,12 +15,15 @@ const BlogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
     return (
         <div className="flex">
             <div className="flex flex-col mx-auto p-5 border border-gray-200 rounded-2xl shadow-md">
+                <Link href={"/blogs"} className="w-fit mb-2.5 cursor-pointer hover:underline text-slate-500/90 hover:text-slate-600">
+                    {"< back"}
+                </Link>
                 <h1 className="text-2xl text-cyan-700"> {blog?.title} </h1>
                 <a href="#" className="italic text-xl w-fit text-slate-700 hover:text-slate-500 transition-colors">
                     {blog.url}
                 </a>
 
-                <div className="flex gap-2 text-xl mt-5">
+                <div className="flex gap-2 text-xl mt-6">
                     <span className="text-slate-700">By</span>
                     <p className="text-lime-700"> {blog.author} </p>
                     <span className="text-gray-300">{" | "}</span>

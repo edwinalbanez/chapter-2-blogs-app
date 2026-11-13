@@ -20,3 +20,13 @@ export const incrementBlogLikes = async (formData: FormData) => {
     revalidatePath(`/blogs/${id}`);
     revalidatePath("/blogs");
 }
+
+export const searchBlog = async(formData: FormData) => {
+    const filter = formData.get("filter") as string;
+
+    if (filter.trim() === "") {
+        return redirect("/blogs")   
+    }
+    
+    redirect(`/blogs?filter=${filter}`);
+}
